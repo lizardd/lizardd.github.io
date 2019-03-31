@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="MK&#39;s Blog">
 <meta property="og:description" content="CSRF 跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。攻击原理和过程 用户打开浏览器并登录访问了A网站。（A网站存在CSRF攻击漏洞） 在用户没有关闭A网站的同时，访问了B网站，B网站返回了一串恶意代码 【会自动请求A网站的某些功能，并带上A网站的合法Cookie信息】。 在用户不知情的情况下，B网站返回的恶意代码被被执行">
 <meta property="og:locale" content="中文">
-<meta property="og:updated_time" content="2019-03-31T08:02:29.810Z">
+<meta property="og:updated_time" content="2019-03-31T08:04:09.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSRF跨域原理和通用处理">
 <meta name="twitter:description" content="CSRF 跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。攻击原理和过程 用户打开浏览器并登录访问了A网站。（A网站存在CSRF攻击漏洞） 在用户没有关闭A网站的同时，访问了B网站，B网站返回了一串恶意代码 【会自动请求A网站的某些功能，并带上A网站的合法Cookie信息】。 在用户不知情的情况下，B网站返回的恶意代码被被执行">
@@ -59,13 +59,13 @@
     <span id="nav">
       <ul>
          
-          <li><a href="/">Inici</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">Qui som</a></li>
+          <li><a href="/about/">About</a></li>
          
-          <li><a href="/archives/">Articles</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projectes</a></li>
+          <li><a href="/projects_url">Projects</a></li>
         
       </ul>
     </span>
@@ -79,10 +79,10 @@
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
-      <span id="i-next" class="info" style="display:none;">Post Següent</span>
-      <span id="i-top" class="info" style="display:none;">Adalt</span>
-      <span id="i-share" class="info" style="display:none;">Compartir Post</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br>
     <div id="share" style="display: none">
@@ -101,7 +101,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF-跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。"><span class="toc-number">1.</span> <span class="toc-text">CSRF 跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#攻击原理和过程"><span class="toc-number">1.0.1.</span> <span class="toc-text">攻击原理和过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF漏洞检测"><span class="toc-number">1.0.2.</span> <span class="toc-text">CSRF漏洞检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF通用处理方案"><span class="toc-number">1.0.3.</span> <span class="toc-text">CSRF通用处理方案</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF-跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。"><span class="toc-number">1.</span> <span class="toc-text">CSRF 跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#攻击原理和过程"><span class="toc-number">1.0.1.</span> <span class="toc-text">攻击原理和过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF漏洞检测"><span class="toc-number">1.0.2.</span> <span class="toc-text">CSRF漏洞检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF通用处理方案"><span class="toc-number">1.0.3.</span> <span class="toc-text">CSRF通用处理方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般防御CSRF攻击主要有三种方案："><span class="toc-number">1.0.3.1.</span> <span class="toc-text">一般防御CSRF攻击主要有三种方案：</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -153,14 +153,11 @@
 <li>A网站后端得到“非法请求”之后，验证Cookie信息确是合法的，则合法处理该请求。导致恶意请求被执行。</li>
 </ol>
 <h4 id="CSRF漏洞检测"><a href="#CSRF漏洞检测" class="headerlink" title="CSRF漏洞检测"></a>CSRF漏洞检测</h4><p>以CSRFTester工具为例，CSRF漏洞检测工具的测试原理如下：使用CSRFTester进行测试时，首先需要抓取我们在浏览器中访问过的所有链接以及所有的表单等信息，然后通过在CSRFTester中修改相应的表单等信息，重新提交，这相当于一次伪造客户端请求。如果修改后的测试请求成功被网站服务器接受，则说明存在CSRF漏洞，当然此款工具也可以被用来进行CSRF攻击</p>
-<h4 id="CSRF通用处理方案"><a href="#CSRF通用处理方案" class="headerlink" title="CSRF通用处理方案"></a>CSRF通用处理方案</h4><blockquote>
-<p>一般防御CSRF攻击主要有三种方案：</p>
-<ul>
+<h4 id="CSRF通用处理方案"><a href="#CSRF通用处理方案" class="headerlink" title="CSRF通用处理方案"></a>CSRF通用处理方案</h4><h5 id="一般防御CSRF攻击主要有三种方案："><a href="#一般防御CSRF攻击主要有三种方案：" class="headerlink" title="一般防御CSRF攻击主要有三种方案："></a>一般防御CSRF攻击主要有三种方案：</h5><ul>
 <li>验证请求头HTTP Referer字段</li>
 <li>使用CSRFToken提交参数并验证</li>
 <li>在HTTP请求头中自定义属性并验证</li>
 </ul>
-</blockquote>
 
   </div>
 </article>
@@ -174,19 +171,19 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/">Inici</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">Qui som</a></li>
+          <li><a href="/about/">About</a></li>
          
-          <li><a href="/archives/">Articles</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projectes</a></li>
+          <li><a href="/projects_url">Projects</a></li>
         
       </ul>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF-跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。"><span class="toc-number">1.</span> <span class="toc-text">CSRF 跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#攻击原理和过程"><span class="toc-number">1.0.1.</span> <span class="toc-text">攻击原理和过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF漏洞检测"><span class="toc-number">1.0.2.</span> <span class="toc-text">CSRF漏洞检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF通用处理方案"><span class="toc-number">1.0.3.</span> <span class="toc-text">CSRF通用处理方案</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF-跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。"><span class="toc-number">1.</span> <span class="toc-text">CSRF 跨站点请求伪造，和XSS攻击一样，对于网站存在巨大的危害，攻击者以你的名义在你不知情的情况下发送了恶意请求到访问的网站。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#攻击原理和过程"><span class="toc-number">1.0.1.</span> <span class="toc-text">攻击原理和过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF漏洞检测"><span class="toc-number">1.0.2.</span> <span class="toc-text">CSRF漏洞检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF通用处理方案"><span class="toc-number">1.0.3.</span> <span class="toc-text">CSRF通用处理方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般防御CSRF攻击主要有三种方案："><span class="toc-number">1.0.3.1.</span> <span class="toc-text">一般防御CSRF攻击主要有三种方案：</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -206,10 +203,10 @@
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menú</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartir</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Cap amunt</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -224,13 +221,13 @@
     <nav>
       <ul>
          
-          <li><a href="/">Inici</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">Qui som</a></li>
+          <li><a href="/about/">About</a></li>
          
-          <li><a href="/archives/">Articles</a></li>
+          <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projectes</a></li>
+          <li><a href="/projects_url">Projects</a></li>
         
       </ul>
     </nav>
