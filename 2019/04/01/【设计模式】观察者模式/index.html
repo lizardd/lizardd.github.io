@@ -14,12 +14,12 @@
 <meta property="og:site_name" content="MK&#39;s Blog">
 <meta property="og:description" content="观察者模式 观察者模式简单讲，就是当一个对象变化的时候，其他观察者对象也会收到通知，并且随着变化，对象关系是一对多的关系。借用网上比较好看的类图和代码如下：    所谓观察者模式。则必须有两个主体，一个是被观察对象123456789101112131415161718```public interface Observer &amp;#123;	public void update();&amp;#125;pub">
 <meta property="og:locale" content="中文">
-<meta property="og:image" content="http://yoursite.com/2019/04/01/【设计模式】观察者模式/1.png">
-<meta property="og:updated_time" content="2019-04-08T13:16:13.895Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/01/【设计模式】观察者模式/2.png">
+<meta property="og:updated_time" content="2019-04-08T13:23:29.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【设计模式】观察者模式">
 <meta name="twitter:description" content="观察者模式 观察者模式简单讲，就是当一个对象变化的时候，其他观察者对象也会收到通知，并且随着变化，对象关系是一对多的关系。借用网上比较好看的类图和代码如下：    所谓观察者模式。则必须有两个主体，一个是被观察对象123456789101112131415161718```public interface Observer &amp;#123;	public void update();&amp;#125;pub">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/01/【设计模式】观察者模式/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/01/【设计模式】观察者模式/2.png">
     
     
         
@@ -155,7 +155,7 @@
     <h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><ul>
 <li>观察者模式简单讲，就是当一个对象变化的时候，其他观察者对象也会收到通知，并且随着变化，对象关系是一对多的关系。借用网上比较好看的类图和代码如下：</li>
 </ul>
-<p><img src="/2019/04/01/【设计模式】观察者模式/1.png" alt="图片"></p>
+<p><img src="/2019/04/01/【设计模式】观察者模式/2.png" alt="图片"></p>
 <ol>
 <li><p>所谓观察者模式。则必须有两个主体，一个是被观察对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">public interface Observer &#123;</span><br><span class="line">	public void update();</span><br><span class="line">&#125;</span><br><span class="line">public interface Subject &#123;</span><br><span class="line">	</span><br><span class="line">	/*增加观察者*/</span><br><span class="line">	public void add(Observer observer);</span><br><span class="line">	</span><br><span class="line">	/*删除观察者*/</span><br><span class="line">	public void del(Observer observer);</span><br><span class="line">	</span><br><span class="line">	/*通知所有的观察者*/</span><br><span class="line">	public void notifyObservers();</span><br><span class="line">	</span><br><span class="line">	/*自身的操作*/</span><br><span class="line">	public void operation();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
